@@ -323,6 +323,8 @@ window.fbAsyncInit = function() {
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 </script>
+
+<!-- Manuel Olarve -->
 <?php 
 include './components/footer.php'; 
 include './components/bottom.php';
