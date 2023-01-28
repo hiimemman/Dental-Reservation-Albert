@@ -1,0 +1,59 @@
+REVISIONS VALDERAMA
+
+Index.php
+1. Carousel images in about us
+
+admin/login.php
+2. Change show / hide in password input to eye icon
+
+admin/records.php
+3. Records add archive
+
+4. admin/cancelled.php
+
+   Cancelled report highlight Cancelled report text and patient report
+
+5. admin.php
+Fix navbar highlight page
+
+6. admin/reports.php
+Change "Patient record" to "Patient report"
+
+7. admin/reports.php
+Move to top textfield
+search textfield
+FILTER:
+ *Firstname
+ *Lastname
+ *Service
+ *Date from and Date to
+
+8. admin/reports.php
+Fix export pdf
+ ADD FOLLOWING
+ *ADD ROLES admin/dentist
+ *ADD SIGNATURE OVER PRINTED NAME
+ *Fix filename
+
+9. admin/confirmed-appointment.php
+tooth clickable
+tapos naghihighlight
+adult and baby tooth
+
+10.admin/view-records.php
+Hover teeth to see diagnosis
+
+
+///DUMMY ACCOUNTS
+ADMIN
+ USERNAME: admin
+ PASSWORD: Admin000
+
+DENTIST
+ USERNAME: christina_
+ PASSWORD: Comia1234
+
+CLIENT
+ USERNAME: jericvalderama044@gmail.com
+ PASSWORD: Password#$1
+
