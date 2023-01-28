@@ -324,7 +324,7 @@ window.fbAsyncInit = function() {
 }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<!-- Manuel Olarve -->
+<!-- Manuel Olarve BSIT 4-1 -->
 <?php 
 include './components/footer.php'; 
 include './components/bottom.php';
