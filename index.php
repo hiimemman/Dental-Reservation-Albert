@@ -324,7 +324,7 @@ window.fbAsyncInit = function() {
 }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<!-- Manuel Olarve BSIT 4-1 -->
+<!-- Manuel Olarve Try Remote -->
 <?php 
 include './components/footer.php'; 
 include './components/bottom.php';
