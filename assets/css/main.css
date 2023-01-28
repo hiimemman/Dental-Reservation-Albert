@@ -3289,3 +3289,47 @@ section {
   background: var(--color-primary);
   text-decoration: none;
 }
+
+/* ============Revision #1 Slider=================== */
+.autoplay{
+  width: auto;
+  margin: auto;
+  padding: 2%;
+  background-color: rgb(22, 163, 163);
+  color: rgb(3, 62, 66);
+  box-shadow: 0 10px 10px 0 rgba(0 0 0 / 16%), 0 10px 10px 0 rgba(0 0 0 / 12%)
+}
+
+.slick-slide{
+  height: px !important;
+}
+.slick-slide img{
+  height: 500px !important; 
+   object-fit: cover;
+ }
+.slick-arrow{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50);
+  font-size: 0;
+  height: 1000px;
+  width: 1000px;
+  background-color: rgba(0,0,0,6);
+  cursor: pointer;
+  background-size: 20px;
+  z-index: 1;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.slick-arrow.slick-prev{
+  left: 10px;
+} 
+.slick-arrow.slick-next{
+  right: 10px;
+}
+.slick-prev:hover, .slick-next:hover{
+  background-color: rgba(0,0,0,3);
+}
+.slick-prev:focus, .slick-next:focus{
+  background-color: rgba(0,0,0,6);
+}

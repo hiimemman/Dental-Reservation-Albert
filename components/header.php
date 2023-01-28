@@ -49,6 +49,15 @@ session_start();
 
     <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    
+    <!-- Start SLICK Added for Slider -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <!-- slick slider CSS library files -->
+    <link rel="stylesheet" type="text/css" href="./assets/slick-1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="./assets/slick-1.8.1/slick/slick-theme.css"/>
+    <!-- slick slider JS library file -->
+    <script type="text/javascript" src="./assets/slick-1.8.1/slick/slick.min.js"></script>
+    <!-- End SLICK for Slider -->
 
     <!-- DataTables CDN -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
@@ -66,6 +75,19 @@ session_start();
         color: white !important;
     }
     </style>
+
+    <!-- REVISION #1 CAROUSEL/SLIDER ABOUT US -->
+    <script>
+$(document).ready(function(){
+    $('.autoplay').slick({
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 1000,
+});
+});
+</script>
+    <!-- END REVISION #1 CAROUSEL/SLIDER ABOUT US -->
 </head>
 
 <body>

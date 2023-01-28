@@ -86,33 +86,53 @@ include './components/header.php';
 
             <div class="row gy-4">
 
+            <!-- ==================REVISION #1 CREATE CAROUSEL SLIDER================== -->
+            <!-- =======================REVISION #1 STARTS HERE======================== -->
+            <div class="autoplay">
             <?php 
-                  
 
-
-                    $sqlpic5 = mysqli_query($conn, "SELECT * FROM tbl_img WHERE id = '5'");
-                    $row5 = mysqli_fetch_array($sqlpic5);
-
-                    $sqlpic6 = mysqli_query($conn, "SELECT * FROM tbl_img WHERE id = '6'");
-                    $row6 = mysqli_fetch_array($sqlpic6);
-
-
-
-                    $sqlpic = mysqli_query($conn, "SELECT * FROM tbl_img WHERE title = 'about'");
-                   while( $row1 = mysqli_fetch_array($sqlpic)){
-
-                  
+            // Retrieve images from the database 
+            $getAboutImage = mysqli_query($conn, "SELECT * FROM tbl_img WHERE isStatus = 1"); 
+     
+            if($getAboutImage->num_rows > 0){ 
+                while($row = $getAboutImage->fetch_assoc()){ 
+                    $imageURL = $row["img"]; 
+                
             ?>
+                <div class="slide">
+                    <img src="<?php echo $imageURL; ?>" alt="" />
+                </div>
+            <?php } 
+            } ?>
+            </div>
+
+            <!-- =======================REVISION #1 ENDS HERE=========================== -->
+
+
+            <!-- ===================CODES BEFORE REVISION======================== -->
+            <!-- <--!<?php 
+                //     $sqlpic5 = mysqli_query($conn, "SELECT * FROM tbl_img WHERE id = '5'");
+                //     $row5 = mysqli_fetch_array($sqlpic5);
+
+                //     $sqlpic6 = mysqli_query($conn, "SELECT * FROM tbl_img WHERE id = '6'");
+                //     $row6 = mysqli_fetch_array($sqlpic6);
+
+
+
+                //     $sqlpic = mysqli_query($conn, "SELECT * FROM tbl_img WHERE title = 'about'");
+                //    while( $row1 = mysqli_fetch_array($sqlpic)){
+                ?>
 
                 <div class="col-xl-4 col-md-4 d-flex" data-aos="zoom-out" data-aos-delay="600">
                     <div class="service-item position-relative">
 
-                        <img class="w-100 h-150" src="./<?php echo $row1['img']; ?>" alt="">
+                        <img class="w-100 h-150" src="./<?php //echo $row1['img']; ?>" alt="">
                     
                     </div>
-                </div><!-- End Service Item -->
+                </div>End Service Item -->
+                <?php //}  ?> <!-- curly bracket for while fetch array sqlpic-->
 
-                                <?php }  ?>
+                <!-- ===================CODES BEFORE REVISION======================== -->
           
 
             </div>
