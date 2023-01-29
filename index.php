@@ -92,7 +92,7 @@ include './components/header.php';
             <?php 
 
             // Retrieve images from the database 
-            $getAboutImage = mysqli_query($conn, "SELECT * FROM tbl_img WHERE isStatus = 1"); 
+            $getAboutImage = mysqli_query($conn, "SELECT * FROM tbl_img WHERE title = 'about'"); 
      
             if($getAboutImage->num_rows > 0){ 
                 while($row = $getAboutImage->fetch_assoc()){ 

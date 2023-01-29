@@ -23,6 +23,11 @@ if(isset($_SESSION['admin_id'])) {
         rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.1.js"
         integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+
 </head>
 <!-- style -->
 <style>
@@ -183,17 +188,42 @@ body {
                                         required autofocus>
                                 </div>
 
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label for="password">Password
                                     </label>
                                     <div class="password-container">
                                         <input id="login_password" type="password" class="form-control" name="password"
-                                            required>
-                                        <span id="eye" class="text-dark">SHOW</span>
-                                       
-                                    </div>
-                                </div>
+                                            required> -->
+                                        <!-- <span id="eye" class="text-dark">SHOW</span> -->
 
+                                    <div class="form-group">
+                                    <label for="password">Password
+                                    </label> 
+                                    <div class="password-container">                                       
+                                        <input type="password" id="login_password" class="form-control" style="display: inline;" required>
+                                            <button style="background-color: #9cdad7; color: black; border: none;" class="btn btn-secondary show-password" type="button">
+                                            <i class="fas fa-eye show-password" id="eye"></i>
+                                            </button>
+                                    </div>
+                                    </div>
+
+                                    <script>
+                                        const password = document.getElementById("login_password");
+                                        const showPassword = document.querySelector(".show-password");
+
+                                        showPassword.addEventListener("click", function() {
+                                             if (password.type === "password") {
+                                                password.type = "text";
+                                                showPassword.innerHTML = '<i class="fas fa-eye-slash"id="eye1"></i>';
+                                            } else {
+                                                password.type = "password";
+                                                showPassword.innerHTML = '<i class="fas fa-eye" id="eye"></i>';
+                                            }
+                                        });
+                                    </script>
+                                       
+                                    <!-- </div>
+                                </div> -->
                       
                                 <div class="form-group m-0">
                                     <button type="submit"
@@ -213,18 +243,18 @@ body {
     <script>
     $(document).ready(function() {
         // SHOW PASSWORD
-        const passwordInput = document.querySelector("#login_password")
-        const eye = document.querySelector("#eye")
+        // const passwordInput = document.querySelector("#login_password")
+        // const eye = document.querySelector("#eye")
 
-        eye.addEventListener("click", function() {
-            if (passwordInput.type === "password") {
-                eye.textContent = "HIDE";
-                passwordInput.type = 'text';
-            } else {
-                eye.textContent = "SHOW";
-                passwordInput.type = 'password';
-            }
-        })
+        // eye.addEventListener("click", function() {
+        //     if (passwordInput.type === "password") {
+        //         eye.textContent = "HIDE";
+        //         passwordInput.type = 'text';
+        //     } else {
+        //         eye.textContent = "SHOW";
+        //         passwordInput.type = 'password';
+        //     }
+        // })
 
         // SUBMIT LOGIN
         $('#login_form').on('submit', function(e) {

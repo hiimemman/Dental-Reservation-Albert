@@ -53,12 +53,13 @@ if(isset($_POST['updateabout'])){
 
     $id = $_POST['id'];
     $name = $_FILES['img']['name'];
-$fileExt = explode('.', $name);
-$fileActualExt = strtolower(end($fileExt));
-$target_dir = "../assets/img/";
-$target_file = $target_dir . $name;
-$extensions_arr = array("jpeg","jpg","png");
-if(in_array($fileActualExt,$extensions_arr) ){
+    $fileExt = explode('.', $name);
+    $fileActualExt = strtolower(end($fileExt));
+    $target_dir = "../assets/img/";
+    $target_file = $target_dir . $name;
+    $extensions_arr = array("jpeg","jpg","png");
+    
+    if(in_array($fileActualExt,$extensions_arr) ){
     
         if(move_uploaded_file($_FILES['img']['tmp_name'],$target_file)){
         
