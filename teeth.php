@@ -69,10 +69,10 @@
         <div class="tooth" id="tooth-7" style ="top: 5.50%;left: 124px;">
           <img src="./teeths/teeth7.png" alt="lag HAHA">
         </div>
-        <div class="tooth" id="tooth-8" >
+        <div class="tooth" id="tooth-8" style ="top: 4.94%;left: 153px;">
           <img src="./teeths/teeth8.png" alt="lag HAHA">
         </div>
-        <div class="tooth flip-teeth-horizontal" id="tooth-9">
+        <div class="tooth flip-teeth-horizontal" id="tooth-9" style ="top: 5.18%;left: 210px;">
           <img src="./teeths/teeth8.png" alt="lag HAHA">
         </div>
         <div class="tooth flip-teeth-horizontal" id="tooth-10">
