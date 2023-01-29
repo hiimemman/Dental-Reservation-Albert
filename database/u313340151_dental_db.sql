@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.3.0-dev+20221227.666ba48dc9
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 28, 2023 at 02:17 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.5
+-- Generation Time: Jan 29, 2023 at 08:26 AM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `comia_dentaldb`
+-- Database: `u313340151_dental_db`
 --
 
 -- --------------------------------------------------------
@@ -80,29 +80,29 @@ CREATE TABLE `tbl_appointment` (
 --
 
 INSERT INTO `tbl_appointment` (`appointment_id`, `user_id`, `firstname`, `lastname`, `gender`, `age`, `contact`, `appointment_date`, `appointment_time`, `service`, `dentist`, `status`, `description`, `payment`, `date_completed`, `time_completed`, `reason`, `reason2`, `request`, `diagram`) VALUES
-(122, 90, 'Camille', 'Tubo', 'Female', 22, '9758256398', '2023-01-16', '09:00:00', 'Orthodontic Treatment', '', 'CANCELLED', '', 0.00, '0000-00-00', '00:00:00', '', 'Missed Appointment/The Patient Did not show up', '', ''),
-(123, 90, 'Cha', 'Myoui', 'Female', 18, '9758256398', '2023-01-15', '16:00:00', 'Tooth Extraction ', '', 'CANCELLED', '', 0.00, '0000-00-00', '00:00:00', '', 'The Dentist is in Vacation', '', ''),
-(124, 90, 'kim', 'Nam', 'Male', 26, '9758256398', '2023-01-17', '10:00:00', 'Removal of Wisdom Tooth ', 'Dr. Charriz Comia', 'COMPLETED', 'Dental caries', 6500.00, '2023-01-15', '22:08:35', '', '', '', '12, 32 -            coL                    C2'),
-(125, 90, 'Rebecca', 'Dee', 'Female', 26, '9758256398', '2023-01-16', '00:00:00', 'Tooth Filling ', '', 'CANCELLED', '', 0.00, '0000-00-00', '00:00:00', '', 'Family Emergency', '', ''),
-(126, 91, 'jeric', 'anasco', 'Male', 21, '9506776468', '2023-01-15', '16:02:00', 'Removal of Wisdom Tooth ', 'Dr. Charriz Comia', 'COMPLETED', 'assa', 1455.00, '2023-01-15', '16:58:46', '', '', '', '1 - C                               '),
-(127, 92, 'Harvey', 'Gultiano', 'Male', 25, '9075594604', '2023-01-17', '10:27:00', 'Consultation/Check up , Tooth Filling ', 'Dr. Charriz Comia', 'COMPLETED', 'Prophylaxis Cleaning', 1000.00, '2023-01-16', '11:14:04', '', '', '9:00 pm', '1, 2 - tooth extrated cleaned                              '),
-(128, 92, 'Harvey', 'Gultiano', 'Male', 18, '9075594604', '2023-01-27', '09:00:00', 'Tooth Filling ', 'Dr. Charriz Comia', 'COMPLETED', 'asda', 123.00, '2023-01-23', '11:57:56', '', '', '22', '2 - Col'),
-(129, 90, 'Camille', 'Tubo', 'Female', 22, '9758256398', '2023-01-17', '10:00:00', 'Orthodontic Treatment', 'Dr. Charriz Comia', 'COMPLETED', 'Bridge Abutment', 8500.00, '2023-01-16', '16:07:12', '', '', '', '32 -                                A Bt'),
-(130, 90, 'Juan', 'Dela Cruz', 'Female', 25, '9758256398', '2023-01-18', '15:00:00', 'Removal of Wisdom Tooth ', 'Dr. christina comia', 'COMPLETED', 'missing one tooth', 8500.00, '2023-01-16', '16:44:15', '', '', 'Hi, Can i Request an appointment at 3:00 pm?', '18, 32 -                  M              C'),
-(131, 90, 'Shani', 'Mi', 'Female', 26, '9758256398', '2023-01-17', '13:00:00', 'Removal of Wisdom Tooth ', 'Dr. Charriz Comia', 'COMPLETED', 'Tooth Decay', 1500.00, '2023-01-19', '13:49:57', '', '', '', '1, 10, 14 - C         GIC    PJC                  '),
-(132, 90, 'Camille', 'Tubo', 'Female', 22, '9758256398', '2023-01-16', '09:00:00', 'Consultation/Check up ', 'Dr. Charriz Comia', 'COMPLETED', 'Dental x-ray - loss of bone', 600.00, '2023-01-16', '18:46:02', '', '', '', '29 -                             C1   '),
-(133, 95, 'Jeric', 'Valderama', 'Male', 21, '9123422315', '2023-01-18', '13:02:00', 'Teeth Withening , Removal of Wisdom Tooth ', 'Dr. Charriz Comia', 'COMPLETED', 'asda', 123.00, '2023-01-23', '11:57:30', '', '', '', '4 - CA'),
-(134, 90, 'Camille', 'Tubo', 'Female', 23, '9758256398', '2023-01-18', '16:00:00', 'Tooth Extraction ', 'Dr. christina comia', 'COMPLETED', 'pulling one tooth out ', 1300.00, '2023-01-18', '15:59:40', '', '', '', '13 -                                '),
-(135, 98, 'Edi', 'Wow', 'Male', 16, '9959603361', '2023-01-31', '10:24:00', 'Tooth Filling ', 'Dr. Charriz Comia', 'COMPLETED', 'Hello', 250.00, '2023-01-19', '19:27:51', '', '', '', '2, 3, 4 -                                '),
-(136, 90, 'Camille', 'Tubo', 'Female', 26, '9758256398', '2023-01-19', '14:00:00', 'Tooth Extraction ', 'Dr. Charriz Comia', 'COMPLETED', 'sample', 123.00, '2023-01-23', '12:39:11', '', '', '', '1 - M - Missing due to Extraction'),
-(137, 97, 'Zed', 'Sanopao', 'Male', 22, '9556070854', '2023-01-20', '13:05:00', 'Consultation/Check up , Tooth Filling ', 'Dr. Charriz Comia', 'COMPLETED', 'filled with dentures', 320.00, '2023-01-20', '13:17:56', '', '', 'I dont have teeth no more', '1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32 - filled filled filled filled filled filled filled filled filled filled filled filled filled filled filled filled filled filled filled filled filled filled filled filled filled filled filled filled filled filled filled filled'),
-(138, 97, 'Zed', 'Sanopao', 'Male', 22, '9556070854', '2023-01-20', '14:00:00', 'Consultation/Check up ', 'Dr. Charriz Comia', 'COMPLETED', 'asda', 1234.00, '2023-01-23', '12:40:06', '', '', '', '8 - M - Missing due to Extraction'),
-(139, 90, 'Kiefer', 'Labrador', 'Male', 4, '9758256398', '2023-01-23', '09:00:00', 'Tooth Filling ', 'Dr. Charriz Comia', 'COMPLETED', 'asdaa', 123.00, '2023-01-23', '11:52:15', '', '', '', '1 - C         '),
-(140, 99, 'amiya', 'gonzales', 'Male', 2, '9758256398', '2023-01-23', '13:00:00', 'Consultation/Check up ', 'Dr. Charriz Comia', 'COMPLETED', 'asda', 123.00, '2023-01-23', '11:55:37', '', '', '', '1 - Col Select Select Select Select Select Select Select Select Select'),
-(141, 91, 'jeric', 'anasco', 'Male', 21, '9506776468', '2023-02-16', '10:00:00', 'Tooth Extraction , Tooth Crowns/Bridges ', '', 'CONFIRMED', '', 0.00, '0000-00-00', '00:00:00', '', '', '', ''),
-(142, 91, 'jeric', 'anasco', 'Male', 7, '9506776468', '2023-01-25', '11:00:00', 'Tooth Crowns/Bridges , Removal of Wisdom Tooth ', '', 'CONFIRMED', '', 0.00, '0000-00-00', '00:00:00', '', '', '', ''),
-(143, 91, 'Babyu', 'Tooth', 'Male', 6, '9506776468', '2023-01-26', '12:00:00', 'Oral Prophylaxis, Orthodontic Treatment', '', 'CONFIRMED', '', 0.00, '0000-00-00', '00:00:00', '', '', '', ''),
-(144, 99, 'amiya', 'gonzales', 'Female', 2, '9758256398', '2023-01-23', '16:06:00', 'Tooth Filling ', '', 'CONFIRMED', '', 0.00, '0000-00-00', '00:00:00', '', '', '', '');
+(122, 90, 'Camille', 'Tubo', 'Female', 22, '9758256398', '2023-01-16', '09:00:00', 'Orthodontic Treatment', '', 'CANCELLED', '', '0.00', '0000-00-00', '00:00:00', '', 'Missed Appointment/The Patient Did not show up', '', ''),
+(123, 90, 'Cha', 'Myoui', 'Female', 18, '9758256398', '2023-01-15', '16:00:00', 'Tooth Extraction ', '', 'CANCELLED', '', '0.00', '0000-00-00', '00:00:00', '', 'The Dentist is in Vacation', '', ''),
+(124, 90, 'kim', 'Nam', 'Male', 26, '9758256398', '2023-01-17', '10:00:00', 'Removal of Wisdom Tooth ', 'Dr. Charriz Comia', 'COMPLETED', 'Dental caries', '6500.00', '2023-01-15', '22:08:35', '', '', '', '12, 32 -            coL                    C2'),
+(125, 90, 'Rebecca', 'Dee', 'Female', 26, '9758256398', '2023-01-16', '00:00:00', 'Tooth Filling ', '', 'CANCELLED', '', '0.00', '0000-00-00', '00:00:00', '', 'Family Emergency', '', ''),
+(126, 91, 'jeric', 'anasco', 'Male', 21, '9506776468', '2023-01-15', '16:02:00', 'Removal of Wisdom Tooth ', 'Dr. Charriz Comia', 'COMPLETED', 'assa', '1455.00', '2023-01-15', '16:58:46', '', '', '', '1 - C                               '),
+(127, 92, 'Harvey', 'Gultiano', 'Male', 25, '9075594604', '2023-01-17', '10:27:00', 'Consultation/Check up , Tooth Filling ', 'Dr. Charriz Comia', 'COMPLETED', 'Prophylaxis Cleaning', '1000.00', '2023-01-16', '11:14:04', '', '', '9:00 pm', '1, 2 - tooth extrated cleaned                              '),
+(128, 92, 'Harvey', 'Gultiano', 'Male', 18, '9075594604', '2023-01-27', '09:00:00', 'Tooth Filling ', 'Dr. Charriz Comia', 'COMPLETED', 'asda', '123.00', '2023-01-23', '11:57:56', '', '', '22', '2 - Col'),
+(129, 90, 'Camille', 'Tubo', 'Female', 22, '9758256398', '2023-01-17', '10:00:00', 'Orthodontic Treatment', 'Dr. Charriz Comia', 'COMPLETED', 'Bridge Abutment', '8500.00', '2023-01-16', '16:07:12', '', '', '', '32 -                                A Bt'),
+(130, 90, 'Juan', 'Dela Cruz', 'Female', 25, '9758256398', '2023-01-18', '15:00:00', 'Removal of Wisdom Tooth ', 'Dr. christina comia', 'COMPLETED', 'missing one tooth', '8500.00', '2023-01-16', '16:44:15', '', '', 'Hi, Can i Request an appointment at 3:00 pm?', '18, 32 -                  M              C'),
+(131, 90, 'Shani', 'Mi', 'Female', 26, '9758256398', '2023-01-17', '13:00:00', 'Removal of Wisdom Tooth ', 'Dr. Charriz Comia', 'COMPLETED', 'Tooth Decay', '1500.00', '2023-01-19', '13:49:57', '', '', '', '1, 10, 14 - C         GIC    PJC                  '),
+(132, 90, 'Camille', 'Tubo', 'Female', 22, '9758256398', '2023-01-16', '09:00:00', 'Consultation/Check up ', 'Dr. Charriz Comia', 'COMPLETED', 'Dental x-ray - loss of bone', '600.00', '2023-01-16', '18:46:02', '', '', '', '29 -                             C1   '),
+(133, 95, 'Jeric', 'Valderama', 'Male', 21, '9123422315', '2023-01-18', '13:02:00', 'Teeth Withening , Removal of Wisdom Tooth ', 'Dr. Charriz Comia', 'COMPLETED', 'asda', '123.00', '2023-01-23', '11:57:30', '', '', '', '4 - CA'),
+(134, 90, 'Camille', 'Tubo', 'Female', 23, '9758256398', '2023-01-18', '16:00:00', 'Tooth Extraction ', 'Dr. christina comia', 'COMPLETED', 'pulling one tooth out ', '1300.00', '2023-01-18', '15:59:40', '', '', '', '13 -                                '),
+(135, 98, 'Edi', 'Wow', 'Male', 16, '9959603361', '2023-01-31', '10:24:00', 'Tooth Filling ', 'Dr. Charriz Comia', 'COMPLETED', 'Hello', '250.00', '2023-01-19', '19:27:51', '', '', '', '2, 3, 4 -                                '),
+(136, 90, 'Camille', 'Tubo', 'Female', 26, '9758256398', '2023-01-19', '14:00:00', 'Tooth Extraction ', 'Dr. Charriz Comia', 'COMPLETED', 'sample', '123.00', '2023-01-23', '12:39:11', '', '', '', '1 - M - Missing due to Extraction'),
+(137, 97, 'Zed', 'Sanopao', 'Male', 22, '9556070854', '2023-01-20', '13:05:00', 'Consultation/Check up , Tooth Filling ', 'Dr. Charriz Comia', 'COMPLETED', 'filled with dentures', '320.00', '2023-01-20', '13:17:56', '', '', 'I dont have teeth no more', '1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32 - filled filled filled filled filled filled filled filled filled filled filled filled filled filled filled filled filled filled filled filled filled filled filled filled filled filled filled filled filled filled filled filled'),
+(138, 97, 'Zed', 'Sanopao', 'Male', 22, '9556070854', '2023-01-20', '14:00:00', 'Consultation/Check up ', 'Dr. Charriz Comia', 'COMPLETED', 'asda', '1234.00', '2023-01-23', '12:40:06', '', '', '', '8 - M - Missing due to Extraction'),
+(139, 90, 'Kiefer', 'Labrador', 'Male', 4, '9758256398', '2023-01-23', '09:00:00', 'Tooth Filling ', 'Dr. Charriz Comia', 'COMPLETED', 'asdaa', '123.00', '2023-01-23', '11:52:15', '', '', '', '1 - C         '),
+(140, 99, 'amiya', 'gonzales', 'Male', 2, '9758256398', '2023-01-23', '13:00:00', 'Consultation/Check up ', 'Dr. Charriz Comia', 'COMPLETED', 'asda', '123.00', '2023-01-23', '11:55:37', '', '', '', '1 - Col Select Select Select Select Select Select Select Select Select'),
+(141, 91, 'jeric', 'anasco', 'Male', 21, '9506776468', '2023-02-16', '10:00:00', 'Tooth Extraction , Tooth Crowns/Bridges ', '', 'CONFIRMED', '', '0.00', '0000-00-00', '00:00:00', '', '', '', ''),
+(142, 91, 'jeric', 'anasco', 'Male', 7, '9506776468', '2023-01-25', '11:00:00', 'Tooth Crowns/Bridges , Removal of Wisdom Tooth ', '', 'CONFIRMED', '', '0.00', '0000-00-00', '00:00:00', '', '', '', ''),
+(143, 91, 'Babyu', 'Tooth', 'Male', 6, '9506776468', '2023-01-26', '12:00:00', 'Oral Prophylaxis, Orthodontic Treatment', '', 'CONFIRMED', '', '0.00', '0000-00-00', '00:00:00', '', '', '', ''),
+(144, 99, 'amiya', 'gonzales', 'Female', 2, '9758256398', '2023-01-23', '16:06:00', 'Tooth Filling ', '', 'CONFIRMED', '', '0.00', '0000-00-00', '00:00:00', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -113,21 +113,23 @@ INSERT INTO `tbl_appointment` (`appointment_id`, `user_id`, `firstname`, `lastna
 CREATE TABLE `tbl_img` (
   `id` int(11) NOT NULL,
   `title` varchar(55) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `img` varchar(55) COLLATE utf8mb4_unicode_ci NOT NULL
+  `img` varchar(55) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `isStatus` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `tbl_img`
 --
 
-INSERT INTO `tbl_img` (`id`, `title`, `img`) VALUES
-(1, 'logo', ''),
-(2, 'about', '../assets/img/comia2.jpg'),
-(3, 'about', '../assets/img/dentist_2.png'),
-(4, 'about', '../assets/img/Dentist_3.jpg'),
-(5, 'protocols', '../assets/img/protocol_1.png'),
-(6, 'protocols', '../assets/img/protocal_2.png'),
-(10, 'tooth', '../assets/img/babytooth.png');
+INSERT INTO `tbl_img` (`id`, `title`, `img`, `isStatus`) VALUES
+(1, 'logo', 'assets/img/babytooth.png', 0),
+(2, 'about', './assets/img/comia2.jpg', 1),
+(3, 'about', './assets/img/dentist_2.png', 1),
+(4, 'about', './assets/img/Dentist_3.jpg', 1),
+(5, 'protocols', './assets/img/protocol_1.png', 1),
+(6, 'protocols', './assets/img/protocal_2.png', 0),
+(10, 'tooth', './assets/img/babytooth.png', 0),
+(11, 'about', '../assets/img/dental.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -372,7 +374,7 @@ ALTER TABLE `tbl_appointment`
 -- AUTO_INCREMENT for table `tbl_img`
 --
 ALTER TABLE `tbl_img`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `tbl_inq`
