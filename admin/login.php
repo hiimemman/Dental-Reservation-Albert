@@ -119,16 +119,17 @@ body {
     top: 18%;
     right: 1.7%;
     cursor: pointer;
-    background-color: #9cdad7;
     color: #fff;
     padding: 0 3px;
     padding-left: 0.238rem;
-    border-radius: 2px;
+    border:none;
+    background: none;
 }
 
 .password-container #eye:hover,
 .password-container #eye1:hover {
-    background-color: #6eada7;
+    border:none;
+    background: none;
 }
 
 @media screen and (max-width: 425px) {
@@ -222,24 +223,24 @@ body {
                                     <label for="password">Password
                                     </label> 
                                     <div class="password-container" style="background: none; color: black; border: none;">                                       
-                                        <input type="password" id="login_password" class="form-control" style="display: inline;" required>
-                                            <button style="background: none; color: black; border: none;" class="btn btn-secondary show-password" type="button">
-                                            <i class="fas fa-eye show-password" id="eye" style="color: black; background: none;"></i>
-                                            </button>
+                                        <input type="password" id="login_password" class="form-control" style="display: inline;" required >
+                                        
+                                            <i class="fas fa-eye-slash" id="eye" style="color: black; background: none;"></i>
+                                           
                                     </div>
                                     </div>
 
                                     <script>
                                         const password = document.getElementById("login_password");
-                                        const showPassword = document.querySelector(".show-password");
-
-                                        showPassword.addEventListener("click", function() {
+                                  
+                                        const eyePassword = document.querySelector("#eye");
+                                        eyePassword.addEventListener("click", function() {
                                              if (password.type === "password") {
                                                 password.type = "text";
-                                                showPassword.innerHTML = '<i class="fas fa-eye-slash" id="eye1" style="border: none; color: black; background: none;"></i>';
+                                                btnShowPassword.innerHTML = '<i class="fas fa-eye" id="eye" style="border: none; color: black; background: none;"></i>';
                                             } else {
                                                 password.type = "password";
-                                                showPassword.innerHTML = '<i class="fas fa-eye" id="eye" style="border: none; color: black; background: none;"></i>';
+                                                btnShowPassword.innerHTML = '<i class="fas fa-eye-slash" id="eye" style="border: none; color: black; background: none;"></i>';
                                             }
                                         });
                                     </script>
