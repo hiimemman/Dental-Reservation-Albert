@@ -221,7 +221,7 @@ body {
                                 <div class="form-group">
                                     <label for="password">Password
                                     </label> 
-                                    <div class="password-container">                                       
+                                    <div class="password-container" style="background: none; color: black; border: none;">                                       
                                         <input type="password" id="login_password" class="form-control" style="display: inline;" required>
                                             <button style="background: none; color: black; border: none;" class="btn btn-secondary show-password" type="button">
                                             <i class="fas fa-eye show-password" id="eye" style="color: black; background: none;"></i>
