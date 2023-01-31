@@ -193,17 +193,9 @@ body {
                                     </label>
                                     <div class="password-container">
                                         <input id="login_password" type="password" class="form-control" name="password"
-                                            required> -->
-                                        <!-- <span id="eye" class="text-dark">SHOW</span> -->
-
-                                    <div class="form-group">
-                                    <label for="password">Password
-                                    </label> 
-                                    <div class="password-container">                                       
-                                        <input type="password" id="login_password" class="form-control" style="display: inline;" required>
-                                            <button style="background-color: #9cdad7; color: black; border: none;" class="btn btn-secondary show-password" type="button">
-                                            <i class="fas fa-eye show-password" id="eye"></i>
-                                            </button>
+                                            required>
+                                        <span id="eye" class="text-dark">SHOW</span>
+                                       
                                     </div>
                                     </div>
 
@@ -222,9 +214,36 @@ body {
                                         });
                                     </script>
                                        
-                                    <!-- </div>
+                                    </div>
                                 </div> -->
-                      
+
+                                
+                                <div class="form-group">
+                                    <label for="password">Password
+                                    </label> 
+                                    <div class="password-container">                                       
+                                        <input type="password" id="login_password" class="form-control" style="display: inline;" required>
+                                            <button style="background: none; color: black; border: none;" class="btn btn-secondary show-password" type="button">
+                                            <i class="fas fa-eye show-password" id="eye" style="color: black; background: none;"></i>
+                                            </button>
+                                    </div>
+                                    </div>
+
+                                    <script>
+                                        const password = document.getElementById("login_password");
+                                        const showPassword = document.querySelector(".show-password");
+
+                                        showPassword.addEventListener("click", function() {
+                                             if (password.type === "password") {
+                                                password.type = "text";
+                                                showPassword.innerHTML = '<i class="fas fa-eye-slash" id="eye1" style="border: none; color: black; background: none;"></i>';
+                                            } else {
+                                                password.type = "password";
+                                                showPassword.innerHTML = '<i class="fas fa-eye" id="eye" style="border: none; color: black; background: none;"></i>';
+                                            }
+                                        });
+                                    </script>
+                                       
                                 <div class="form-group m-0">
                                     <button type="submit"
                                         class="btn btn-primary btn-block save text-dark font-weight-bolder text-uppercase text"
