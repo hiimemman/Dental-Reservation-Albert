@@ -70,7 +70,7 @@
         <div class="tooth" title="This is a tooltip" id="tooth-6" style ="top: 7.0%;left: 103px;">
          <img src="./teeths/teeth6.png" alt="lag HAHA">
         </div>
-        <div class="tooth" title="This is a tooltip" id="tooth-7" style ="top: 5.50%;left: 124px;">
+        <div class="tooth" title="This is a tooltip" id="tooth-7" style ="top: 5.50%;left: 126px;">
           <img src="./teeths/teeth7.png" alt="lag HAHA">
         </div>
         <div class="tooth" title="This is a tooltip" id="tooth-8" style ="top: 4.94%;left: 153px;">
@@ -79,7 +79,7 @@
         <div class="tooth flip-teeth-horizontal" id="tooth-9" style ="top: 5.10%;left: 213px;">
           <img src="./teeths/teeth8.png" alt="lag HAHA">
         </div>
-        <div class="tooth flip-teeth-horizontal" id="tooth-10" style ="top: 5.67%;left: 240px;">
+        <div class="tooth flip-teeth-horizontal" id="tooth-10" style ="top: 5.67%;left: 238px;">
          <img src="./teeths/teeth7.png" alt="lag HAHA">
         </div>
         <div class="tooth flip-teeth-horizontal" id="tooth-11" style ="top: 7.00%;left: 257px;">
