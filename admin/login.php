@@ -189,7 +189,7 @@ body {
                                     <div class="password-container">
                                         <input id="login_password" type="password" class="form-control" name="password"
                                             required>
-                                        <!-- <span id="eye" class="text-dark">SHOW</span> -->
+                                        <span id="eye" class="text-dark">SHOW</span>
                                        
                                     </div>
                                 </div>
