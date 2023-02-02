@@ -183,7 +183,7 @@ teeth.forEach(tooth => {
     selectedTeeth =  document.getElementById(tooth.id);
     let img = selectedTeeth.querySelector("img"); 
     img.src = img.src.substr(0, img.src.length - 4) + "-green.png";;
-    // alert(`Tooth ${tooth.id} clicked!`)
+
   
   });
 });
