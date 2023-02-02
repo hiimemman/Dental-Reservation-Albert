@@ -23,6 +23,12 @@ if(isset($_SESSION['admin_id'])) {
         rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.1.js"
         integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    
+        <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+
+
 </head>
 <!-- style -->
 <style>
@@ -189,7 +195,7 @@ body {
                                     <div class="password-container">
                                         <input id="login_password" type="password" class="form-control" name="password"
                                             required>
-                                        <span id="eye" class="text-dark">SHOW</span>
+                                        <span id="eye" class="text-dark" style="background: none;"><i class="fas fa-eye"></i></span>
                                        
                                     </div>
                                 </div>
@@ -218,10 +224,10 @@ body {
 
         eye.addEventListener("click", function() {
             if (passwordInput.type === "password") {
-                eye.textContent = "HIDE";
+                eye.innerHTML = "<i class='fas fa-eye-slash'></i>";
                 passwordInput.type = 'text';
             } else {
-                eye.textContent = "SHOW";
+                eye.innerHTML = "<i class='fas fa-eye'>";
                 passwordInput.type = 'password';
             }
         })
