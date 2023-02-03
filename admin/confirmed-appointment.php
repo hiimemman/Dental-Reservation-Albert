@@ -244,6 +244,27 @@
         .flip-teeth-both{
           transform: rotate(180deg);
         }
+
+      /* Modal diagnosis */
+        #selectDiagnosisModal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        #selectDiagnosisModal-content {
+        width: fit-content;
+        position: absolute;
+        background-color: white;
+        padding: 20px;
+        border: 1px solid black;
+        }
     </style>
                
 <div id ="teeth-container">
@@ -358,37 +379,85 @@
     </div>
 </div>
 
-<?php
+<div id="selectDiagnosisModal">
+  <div class="modal-content" id ="selectDiagnosisModal-content">
+    <span class="close" id ="selectDiagnosisModalClose">&times;</span>
+    <p>This is a modal popup</p>
+  </div>
+</div>
 
-$sql = mysqli_query($conn, "SELECT * FROM `tbl_legend`;");
-
-$result = mysqli_fetch_all($sql, MYSQLI_ASSOC);
-
-$myJson = json_encode($result);
-
-echo '<input id ="legendsFetch"  value = ' . $myJson . '>';
-?>
 
 <script defer>
 
-const legends =  document.querySelector('#legendsFetch');
-console.log(legends)
-const myJson = legends.value;
-
-console.log(myJson)
-
+//Ung ngipin
 const teeth = document.querySelectorAll('.tooth');
-teeth.forEach(tooth => {
-  tooth.addEventListener('click', event => {
-    // Add code to handle the tooth click event here
-    console.log(`Tooth ${tooth.id} clicked!`);
-    selectedTeeth =  document.getElementById(tooth.id);
-    let img = selectedTeeth.querySelector("img"); 
-    img.src = img.src.substr(0, img.src.length - 4) + "-green.png";;
-   alert(myJsons)
+
+//Ung modal kapag cinlick ung ngipin
+const modal = document.querySelector("#selectDiagnosisModal");
+
+//Ung content ng modal
+const modalContent = document.querySelector("#selectDiagnosisModal-content");
+
+//Close button of diagnosis modal
+const close = document.querySelector("#selectDiagnosisModalClose");
+
+const fetchLegendsPageLoad = async () => {
+
+  await window.onload;
   
-  });
-});
+  let legends = [];
+
+  //fetch all legends from tbl_legends
+  try{
+        const sendRequest = await fetch('./backend/get-all-legends.php');
+        const response = await sendRequest.json();
+
+        if(response.requestStatus === 'success'){
+            console.log(response.data)
+            legends = response.data;
+
+            let modalContentHTML = '<select>';
+            response.data.forEach((legend) =>{
+                modalContentHTML += `<option >`+legends.name+`</option>`;
+            })
+            modalContenHTML += '</select>';
+
+            modalContent.innerHTML = modalContentHTML;
+        }
+
+        if(response.requestStatus === 'error'){
+            console.log(response.data)
+        }
+       
+    }catch(e){
+        console.error(e);
+    }
+  
+
+  
+    teeth.forEach(tooth => {
+    tooth.addEventListener('click', event => {
+        // Add code to handle the tooth click event here
+        console.log(`Tooth ${tooth.id} clicked!`);
+        selectedTeeth =  document.querySelector("#"+tooth.id);
+        let img = selectedTeeth.querySelector("img"); 
+
+        img.src = img.src.substr(0, img.src.length - 4) + "-green.png";
+
+        modalContent.style.left = `${event.clientX}px`;
+        modalContent.style.top = `${event.clientY}px`;
+        modal.style.display = "block";
+     });
+    });
+
+    close.addEventListener('click' , (event) => {
+        modal.style.display = "none";
+    })
+}
+
+fetchLegendsPageLoad();//
+
+
 </script>
                              
                             <!-- <div class="form-check">
