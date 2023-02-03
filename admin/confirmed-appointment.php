@@ -360,26 +360,22 @@
 
 <?php
 
-$sql = "SELECT * FROM tbl_legend";
-$getLegend = mysqli_query($conn, $sql);
-$myArray = array();
+$sql = mysqli_query($conn, "SELECT * FROM `tbl_legend`;");
 
-if (mysqli_num_rows($getLegend) > 0) {
-  while($row = mysqli_fetch_assoc($getLegend)) {
-    $myArray[] = $row;
-  }
-}
+$result = mysqli_fetch_all($sql, MYSQLI_ASSOC);
 
+$myJson = json_encode($result);
 
-$myJson = json_encode($myArray);
-
-echo '<input id ="legendsFetch" type ="hidden"  value = '.$myJson.'>';
+echo '<input id ="legendsFetch"  value = ' . $myJson . '>';
 ?>
 
 <script defer>
 
-const legends =  document.querySelector('#myInput');
-const myJson = JSON.parse(legends.value);
+const legends =  document.querySelector('#legendsFetch');
+console.log(legends)
+const myJson = legends.value;
+
+console.log(myJson)
 
 const teeth = document.querySelectorAll('.tooth');
 teeth.forEach(tooth => {
