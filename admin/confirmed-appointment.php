@@ -112,9 +112,12 @@
                     }
                 </style>
                 <div class="modal-header" id ="update-header-modal">
+                    
+                    <span class="close" data-bs-dismiss="modal">&times;</span>
                     <h1 class="modal-title fs-5" id="exampleModalLabel">UPDATE APPOINTMENT STATUS</h1>
+                    
                     <div>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    
                     <button type="submit" id="update_btn" form="update" class="btn btn-success">Update</button>
                     </div>                   
                 </div>
@@ -265,34 +268,45 @@
         padding: 20px;
         border: 1px solid black;
         }
+
+        #teeth-tooltip {
+        display: none;
+        position: fixed;
+        width:250px;
+        background-color: rgb(64 64 64);
+        color: rgb(103 232 249);
+        padding: 10px;
+        border: 1px solid black;
+        z-index: 1;
+        }
     </style>
                
 <div id ="teeth-container">
     <div id="teeth-diagram">
         <div id ="teeth-content">
         <div id="upper-part">
-            <div class="tooth" title="This is a tooltip" id="tooth-1" style ="top: 24%;left: 25px;" >
+            <div class="tooth"  id="tooth-1" style ="top: 24%;left: 25px;" >
                 <img src="../teeths/teeth1.png" alt="lag HAHA">
             </div>
-            <div class="tooth" title="This is a tooltip" id="tooth-2" style ="top: 19.2%;left: 34px;">
+            <div class="tooth"  id="tooth-2" style ="top: 19.2%;left: 34px;">
             <img src="../teeths/teeth2.png" alt="lag HAHA">
             </div>
-            <div class="tooth" title="This is a tooltip" id="tooth-3" style ="top: 14.6%;left: 42px;">
+            <div class="tooth"  id="tooth-3" style ="top: 14.6%;left: 42px;">
             <img src="../teeths/teeth3.png" alt="lag HAHA">
             </div>
-            <div class="tooth" title="This is a tooltip" id="tooth-4" style ="top: 11.2%;left: 58px;">
+            <div class="tooth"  id="tooth-4" style ="top: 11.2%;left: 58px;">
             <img src="../teeths/teeth4.png" alt="lag HAHA">
             </div>
-            <div class="tooth" title="This is a tooltip" id="tooth-5" style ="top: 8.5%;left: 77px;">
+            <div class="tooth"  id="tooth-5" style ="top: 8.5%;left: 77px;">
             <img src="../teeths/teeth5.png" alt="lag HAHA">
             </div>
-            <div class="tooth" title="This is a tooltip" id="tooth-6" style ="top: 7.0%;left: 103px;">
+            <div class="tooth"  id="tooth-6" style ="top: 7.0%;left: 103px;">
             <img src="../teeths/teeth6.png" alt="lag HAHA">
             </div>
-            <div class="tooth" title="This is a tooltip" id="tooth-7" style ="top: 5.50%;left: 126px;">
+            <div class="tooth"  id="tooth-7" style ="top: 5.50%;left: 126px;">
             <img src="../teeths/teeth7.png" alt="lag HAHA">
             </div>
-            <div class="tooth" title="This is a tooltip" id="tooth-8" style ="top: 4.94%;left: 153px;">
+            <div class="tooth"  id="tooth-8" style ="top: 4.94%;left: 153px;">
             <img src="../teeths/teeth8.png" alt="lag HAHA">
             </div>
             <div class="tooth flip-teeth-horizontal" id="tooth-9" style ="top: 5.10%;left: 213px;">
@@ -337,13 +351,13 @@
             <div class="tooth flip-teeth-vertical" id="tooth-21" style ="top: 59.85%; left: 78px;">
             <img src="../teeths/teeth5.png" alt="lag HAHA">
             </div>
-            <div class="tooth" title="This is a tooltip" id="tooth-22" style ="top: 57.77%; left: 104px;">
+            <div class="tooth"  id="tooth-22" style ="top: 57.77%; left: 104px;">
             <img src="../teeths/teeth6-lower.png" alt="lag HAHA">
             </div>
-            <div class="tooth" title="This is a tooltip" id="tooth-23" style ="top: 58.68%; left: 126px;">
+            <div class="tooth"  id="tooth-23" style ="top: 58.68%; left: 126px;">
             <img src="../teeths/teeth7-lower.png" alt="lag HAHA">
             </div>
-            <div class="tooth" title="This is a tooltip" id="tooth-24" style ="top: 58.81%; left: 152px;"
+            <div class="tooth"  id="tooth-24" style ="top: 58.81%; left: 152px;"
             >
             <img src="../teeths/teeth8-lower.png" alt="lag HAHA">
             </div>
@@ -379,13 +393,17 @@
     </div>
 </div>
 
+
+
 <div id="selectDiagnosisModal">
   <div class="modal-content" id ="selectDiagnosisModal-content">
     <span class="close" id ="selectDiagnosisModalClose">&times;</span>
-    <p>This is a modal popup</p>
+    <p>Please choose a diagnosis</p>
+    <select id ="diagnosisList"></select>
   </div>
-</div>
 
+</div>
+<div id="teeth-tooltip"></div>
 
 <script defer>
 
@@ -400,6 +418,12 @@ const modalContent = document.querySelector("#selectDiagnosisModal-content");
 
 //Close button of diagnosis modal
 const close = document.querySelector("#selectDiagnosisModalClose");
+
+//Div for diagnosis list
+const diagnosisList = document.querySelector("#diagnosisList");
+
+//Tooltip of tooth
+const tooltip = document.querySelector("#teeth-tooltip");
 
 const fetchLegendsPageLoad = async () => {
 
@@ -416,13 +440,13 @@ const fetchLegendsPageLoad = async () => {
             console.log(response.data)
             legends = response.data;
 
-            let modalContentHTML = '<select>';
+            let diagnosisContentHTML = '';
             response.data.forEach((legend) =>{
-                modalContentHTML += `<option >`+legends.name+`</option>`;
+                diagnosisContentHTML += `<option value ="`+legend.name+`" id = "`+legend.id+`">`+legend.name+`</option>`;
             })
-            modalContenHTML += '</select>';
+            diagnosisContentHTML += '';
 
-            modalContent.innerHTML = modalContentHTML;
+            diagnosisList.innerHTML = diagnosisContentHTML;
         }
 
         if(response.requestStatus === 'error'){
@@ -442,8 +466,28 @@ const fetchLegendsPageLoad = async () => {
         selectedTeeth =  document.querySelector("#"+tooth.id);
         let img = selectedTeeth.querySelector("img"); 
 
+        //change to green when selected
         img.src = img.src.substr(0, img.src.length - 4) + "-green.png";
+        
+        //change the data that the selected teeth holds
+        selectedTeeth.dataset.value = diagnosisList.value;
 
+        //when teeth was hovered
+        selectedTeeth.addEventListener("mouseenter", (event) => {
+            let tooltipNewContent = '';
+
+            tooltipNewContent   += `<h1>`+tooth.id+`</h1>`;
+            tooltipNewContent += `<p>Diagnosis</p> `+event.target.dataset.value+``;
+            tooltip.innerHTML = tooltipNewContent;
+            tooltip.style.display = "block";
+            tooltip.style.left = `${event.clientX}px`;
+            tooltip.style.top = `${event.clientY}px`;
+        });
+        //when teeth mouse leave
+        selectedTeeth.addEventListener("mouseleave", (event) => {
+        tooltip.style.display = "none";
+        });
+        //adjust the modal where cursor is located
         modalContent.style.left = `${event.clientX}px`;
         modalContent.style.top = `${event.clientY}px`;
         modal.style.display = "block";
@@ -457,9 +501,13 @@ const fetchLegendsPageLoad = async () => {
 
 fetchLegendsPageLoad();//
 
+//listen when value change
+diagnosisList.addEventListener('change', event =>{
+    modal.style.display = "none";
+})
 
 </script>
-                             
+<input type="checkbox" style ="display: none;"  name="services" value="Tite" id="diagram">
                             <!-- <div class="form-check">
                                 <input type="checkbox"  name="services[]" value="none" id="diagram">
                                 <label>None</label>
@@ -644,37 +692,39 @@ $(document).ready(function() {
 
         var form = new FormData(this);
         form.append('update_appointment', true);
-
-        $.ajax({
-            type: "POST",
-            url: "./functions/confirmed-appointment.php",
-            data: form,
-            dataType: 'text',
-            contentType: false,
-            cache: false,
-            processData: false,
-            beforeSend: function() {
-                $('#update_btn').prop('disabled', true);
-                $('#update_btn').text('Processing...');
-            },
-            complete: function() {
-                $('#update_btn').prop('disabled', false);
-                $('#update_btn').text('Update');
-            },
-            success: function(response) {
-                if (response.includes('success')) {
-                    localStorage.setItem('status', 'updated');
-                    location.reload();
-                } else {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Failed',
-                        text: 'Something went wrong!'
-                    });
-                }
-                console.log(response);
-            }
-        })
+        for (let pair of form.entries()) {
+            console.log(pair[0]+ ', ' + pair[1]); 
+        }
+        // $.ajax({
+        //     type: "POST",
+        //     url: "./functions/confirmed-appointment.php",
+        //     data: form,
+        //     dataType: 'text',
+        //     contentType: false,
+        //     cache: false,
+        //     processData: false,
+        //     beforeSend: function() {
+        //         $('#update_btn').prop('disabled', true);
+        //         $('#update_btn').text('Processing...');
+        //     },
+        //     complete: function() {
+        //         $('#update_btn').prop('disabled', false);
+        //         $('#update_btn').text('Update');
+        //     },
+        //     success: function(response) {
+        //         if (response.includes('success')) {
+        //             localStorage.setItem('status', 'updated');
+        //             location.reload();
+        //         } else {
+        //             Swal.fire({
+        //                 icon: 'error',
+        //                 title: 'Failed',
+        //                 text: 'Something went wrong!'
+        //             });
+        //         }
+        //         console.log(response);
+        //     }
+        // })
     })
 });
 </script>

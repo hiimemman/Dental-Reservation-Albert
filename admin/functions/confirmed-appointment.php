@@ -47,9 +47,9 @@ if (isset($_POST['update_appointment'])) {
   
 
     if ($update_status == 'COMPLETED') {
-        $services = implode(', ', $_POST['services']);
-        $ser = implode(' ',$_POST['ser']);
-        $diagram = $services .' - '.$ser;
+        // $services = implode(', ', $_POST['services']);
+        // $ser = implode(' ',$_POST['ser']);
+        // $diagram = $services .' - '.$ser;
 
 
         $update = mysqli_query($conn, "UPDATE tbl_appointment SET status = '$update_status', payment = '$update_price', description = '$update_description', date_completed = '$update_date_completed', time_completed = '$update_time_completed', dentist = '$update_dentist', diagram = '$diagram' WHERE appointment_id = $update_appointment_id");
