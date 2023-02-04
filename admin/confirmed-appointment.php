@@ -695,36 +695,36 @@ $(document).ready(function() {
         for (let pair of form.entries()) {
             console.log(pair[0]+ ', ' + pair[1]); 
         }
-        // $.ajax({
-        //     type: "POST",
-        //     url: "./functions/confirmed-appointment.php",
-        //     data: form,
-        //     dataType: 'text',
-        //     contentType: false,
-        //     cache: false,
-        //     processData: false,
-        //     beforeSend: function() {
-        //         $('#update_btn').prop('disabled', true);
-        //         $('#update_btn').text('Processing...');
-        //     },
-        //     complete: function() {
-        //         $('#update_btn').prop('disabled', false);
-        //         $('#update_btn').text('Update');
-        //     },
-        //     success: function(response) {
-        //         if (response.includes('success')) {
-        //             localStorage.setItem('status', 'updated');
-        //             location.reload();
-        //         } else {
-        //             Swal.fire({
-        //                 icon: 'error',
-        //                 title: 'Failed',
-        //                 text: 'Something went wrong!'
-        //             });
-        //         }
-        //         console.log(response);
-        //     }
-        // })
+        $.ajax({
+            type: "POST",
+            url: "./functions/confirmed-appointment.php",
+            data: form,
+            dataType: 'text',
+            contentType: false,
+            cache: false,
+            processData: false,
+            beforeSend: function() {
+                $('#update_btn').prop('disabled', true);
+                $('#update_btn').text('Processing...');
+            },
+            complete: function() {
+                $('#update_btn').prop('disabled', false);
+                $('#update_btn').text('Update');
+            },
+            success: function(response) {
+                if (response.includes('success')) {
+                    localStorage.setItem('status', 'updated');
+                    location.reload();
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Failed',
+                        text: 'Something went wrong!'
+                    });
+                }
+                console.log(response);
+            }
+        })
     })
 });
 </script>
