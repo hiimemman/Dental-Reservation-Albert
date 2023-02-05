@@ -137,7 +137,7 @@ include './components/component-top.php';
         </div>
     </div> <!-- UPDATE MODAL END -->
 
-   <a href="records-archive.php">View Archive</a>
+    <a href="records-archive.php"><button class="archive">View Archive</button></a>
     <section>
         <div class="row">
             <div class="card p-3">
@@ -179,17 +179,20 @@ include './components/component-top.php';
                                     
                                     <?php 
                                     if($row['isStatus'] == 1){
-                                        echo '<p class="archive"><a href="records-status.php?appointment_id='.$row['appointment_id'].'&isStatus=0">Restore</a></p>';
+                                        echo '<a class="archive" href="records-status.php?appointment_id='.$row['appointment_id'].'&isStatus=0">Restore</a>';
                                     }
                                     else{
-                                        echo '<p class="archive"><a href="records-status.php?appointment_id='.$row['appointment_id'].'&isStatus=1">Archive</a></p>';
+                                        echo '<a class="btn btn-danger" href="records-status.php?appointment_id='.$row['appointment_id'].'&isStatus=1">Archive</a>';
                                     }
                                     ?>
+                                    <!-- <p class="archive"></p> -->
                                     <style>
                                         .archive{
-                                            border: 1px solid green;
-                                            border-radius: 10%;
+                                            color: white;
+                                            border-color: teal;
+                                            background-color: teal;
                                             padding: auto;
+                                            margin-bottom: 10px;
                                         }
                                     </style>
                                     </div>

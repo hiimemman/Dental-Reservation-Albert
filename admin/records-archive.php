@@ -6,11 +6,12 @@ include './components/component-top.php';
 <main id="main" class="main">
 
     <div class="pagetitle">
-        <h1>Records</h1>
+        <h1>Archived Records</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                <li class="breadcrumb-item active">Records</li>
+            <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                <li class="breadcrumb-item active"><a href="records.php">Records</a></li>
+                <li class="breadcrumb-item active">Archive</li>
             </ol>
         </nav>
     </div><!-- End Page Title -->
@@ -136,7 +137,7 @@ include './components/component-top.php';
             </div>
         </div>
     </div> <!-- UPDATE MODAL END -->
-    <a href="records.php">View Records</a>
+    <a href="records-archive.php"><button class="archive">View Records</button></a>
     <section>
         <div class="row">
             <div class="card p-3">
@@ -178,22 +179,20 @@ include './components/component-top.php';
                                     
                                     <?php 
                                     if($row['isStatus'] == 1){
-                                        echo '<p class="success"><a href="records-status.php?appointment_id='.$row['appointment_id'].'&isStatus=0">Restore</a></p>';
+                                        echo '<a class="btn btn-danger" href="records-status.php?appointment_id='.$row['appointment_id'].'&isStatus=0">Restore</a>';
                                     }
                                     else{
-                                        echo '<p class="danger"><a href="records-status.php?appointment_id='.$row['appointment_id'].'&isStatus=1">Archive</a></p>';
+                                        echo '<a class="btn btn-danger" href="records-status.php?appointment_id='.$row['appointment_id'].'&isStatus=1"><i class="fas fa-archive"></i></a>';
                                     }
                                     ?>
+                                    <!-- <p class="archive"></p> -->
                                     <style>
-                                        .success{
-                                            border: 1px solid green;
-                                            border-radius: 10%;
+                                        .archive{
+                                            color: white;
+                                            border-color: teal;
+                                            background-color: teal;
                                             padding: auto;
-                                        }
-                                        .danger{
-                                            border: 1px solid red;
-                                            border-radius: 10%;
-                                            padding: auto;
+                                            margin-bottom: 10px;
                                         }
                                     </style>
                                     </div>
