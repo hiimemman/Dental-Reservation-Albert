@@ -41,10 +41,9 @@ if (isset($_POST['update_appointment'])) {
     $update_dentist = $_POST['update_dentist'] ?? null;
     $update_date_completed = date('Y-m-d');
     $update_time_completed = date('H:i:s');
-
+    $diagram = $_POST['diagram'];
     $reason2 = $_POST['reason'];
 
-  
 
     if ($update_status == 'COMPLETED') {
         // $services = implode(', ', $_POST['services']);

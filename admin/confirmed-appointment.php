@@ -405,6 +405,7 @@
 </div>
 <div id="teeth-tooltip"></div>
 
+<input type ="hidden" id ="diagram" />
 <script defer>
 
 //Ung ngipin
@@ -424,6 +425,9 @@ const diagnosisList = document.querySelector("#diagnosisList");
 
 //Tooltip of tooth
 const tooltip = document.querySelector("#teeth-tooltip");
+
+//Store diagnosis in input 
+const diagramHidden = document.querySelector("#diagram");
 
 const fetchLegendsPageLoad = async () => {
 
@@ -467,17 +471,33 @@ const fetchLegendsPageLoad = async () => {
         let img = selectedTeeth.querySelector("img"); 
 
         //change to green when selected
-        img.src = img.src.substr(0, img.src.length - 4) + "-green.png";
+        if(JSON.parse(event.target.dataset.value).changed !== true){
+            img.src = img.src.substr(0, img.src.length - 4) + "-green.png";
+        }
         
+        let getTeethNum = tooth.id.slice(6);//remove tooth- to get only the teeth number
+
         //change the data that the selected teeth holds
-        selectedTeeth.dataset.value = diagnosisList.value;
+        let tempJson = { 
+            id: getTeethNum,
+            diagnosis: diagnosisList.value,
+            changed: true,
+        };
+        selectedTeeth.dataset.value = JSON.stringify(tempJson)
+
+        //Update diagram when  new diagnosis was selected
+        
+        let addToDiagnosis = getTeethNum+" - "+selectedTeeth.dataset.value;
+        // diagramHidden
+
+        console.log(addToDiagnosis)
 
         //when teeth was hovered
         selectedTeeth.addEventListener("mouseenter", (event) => {
             let tooltipNewContent = '';
 
             tooltipNewContent   += `<h1>`+tooth.id+`</h1>`;
-            tooltipNewContent += `<p>Diagnosis</p> `+event.target.dataset.value+``;
+            tooltipNewContent += `<p>Diagnosis</p> `+JSON.parse(event.target.dataset.value).diagnosis+``;
             tooltip.innerHTML = tooltipNewContent;
             tooltip.style.display = "block";
             tooltip.style.left = `${event.clientX}px`;
@@ -686,12 +706,27 @@ $(document).ready(function() {
         }
     })
 
+    const teeth = document.querySelectorAll('.tooth');
+    
     // SUBMIT UPDATE
     $(document).on('submit', '#update', function(e) {
         e.preventDefault();
 
+        let getDiagrams = [];
+
+        teeth.forEach(tooth => {
+            if(tooth.dataset.value !== undefined){
+                let dataInTeeth = JSON.parse(tooth.dataset.value);
+                let dataValue = dataInTeeth.id+" - "+dataInTeeth.diagnosis;
+                getDiagrams.push(dataValue);
+            }
+        });
+
+        console.log(getDiagrams)
         var form = new FormData(this);
         form.append('update_appointment', true);
+        
+        form.append("diagram", getDiagrams);
         for (let pair of form.entries()) {
             console.log(pair[0]+ ', ' + pair[1]); 
         }
