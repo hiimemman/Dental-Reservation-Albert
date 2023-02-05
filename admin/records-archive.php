@@ -136,7 +136,7 @@ include './components/component-top.php';
             </div>
         </div>
     </div> <!-- UPDATE MODAL END -->
-    <a href="records-archive.php">View Records</a>
+    <a href="records.php">View Records</a>
     <section>
         <div class="row">
             <div class="card p-3">

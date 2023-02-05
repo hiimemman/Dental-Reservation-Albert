@@ -179,20 +179,15 @@ include './components/component-top.php';
                                     
                                     <?php 
                                     if($row['isStatus'] == 1){
-                                        echo '<p class="success"><a href="records-status.php?appointment_id='.$row['appointment_id'].'&isStatus=0">Restore</a></p>';
+                                        echo '<p class="archive"><a href="records-status.php?appointment_id='.$row['appointment_id'].'&isStatus=0">Restore</a></p>';
                                     }
                                     else{
-                                        echo '<p class="danger"><a href="records-status.php?appointment_id='.$row['appointment_id'].'&isStatus=1">Archive</a></p>';
+                                        echo '<p class="archive"><a href="records-status.php?appointment_id='.$row['appointment_id'].'&isStatus=1">Archive</a></p>';
                                     }
                                     ?>
                                     <style>
-                                        .success{
+                                        .archive{
                                             border: 1px solid green;
-                                            border-radius: 10%;
-                                            padding: auto;
-                                        }
-                                        .danger{
-                                            border: 1px solid red;
                                             border-radius: 10%;
                                             padding: auto;
                                         }
