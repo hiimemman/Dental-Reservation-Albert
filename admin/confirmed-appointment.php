@@ -429,6 +429,9 @@ const tooltip = document.querySelector("#teeth-tooltip");
 //Store diagnosis in input 
 const diagramHidden = document.querySelector("#diagram");
 
+//Current selected teethh
+let currentSelectedTeeth = '';
+
 const fetchLegendsPageLoad = async () => {
 
   await window.onload;
@@ -445,6 +448,7 @@ const fetchLegendsPageLoad = async () => {
             legends = response.data;
 
             let diagnosisContentHTML = '';
+            diagnosisContentHTML += `<option disabled selected>Select</option>`;
             response.data.forEach((legend) =>{
                 diagnosisContentHTML += `<option value ="`+legend.name+`" id = "`+legend.id+`">`+legend.name+`</option>`;
             })
@@ -463,17 +467,17 @@ const fetchLegendsPageLoad = async () => {
   
 
   
-    teeth.forEach(tooth => {
+   
+}
+
+fetchLegendsPageLoad();//
+
+teeth.forEach(tooth => {
     tooth.addEventListener('click', event => {
         // Add code to handle the tooth click event here
         console.log(`Tooth ${tooth.id} clicked!`);
         selectedTeeth =  document.querySelector("#"+tooth.id);
         let img = selectedTeeth.querySelector("img"); 
-
-        //change to green when selected
-        if(JSON.parse(event.target.dataset.value).changed !== true){
-            img.src = img.src.substr(0, img.src.length - 4) + "-green.png";
-        }
         
         let getTeethNum = tooth.id.slice(6);//remove tooth- to get only the teeth number
 
@@ -481,17 +485,24 @@ const fetchLegendsPageLoad = async () => {
         let tempJson = { 
             id: getTeethNum,
             diagnosis: diagnosisList.value,
-            changed: true,
         };
-        selectedTeeth.dataset.value = JSON.stringify(tempJson)
 
+        selectedTeeth.dataset.value = JSON.stringify(tempJson)
+        let selectedTeethDataset = selectedTeeth.dataset.value;
         //Update diagram when  new diagnosis was selected
         
         let addToDiagnosis = getTeethNum+" - "+selectedTeeth.dataset.value;
         // diagramHidden
 
-        console.log(addToDiagnosis)
+        
+        currentSelectedTeeth = tooth.id;
+        console.log(selectedTeethDataset)
 
+        
+        if (!img.src.endsWith('-green.png')) {
+            img.src = img.src.substr(0, img.src.length - 4) + "-green.png";
+        }
+         
         //when teeth was hovered
         selectedTeeth.addEventListener("mouseenter", (event) => {
             let tooltipNewContent = '';
@@ -511,18 +522,24 @@ const fetchLegendsPageLoad = async () => {
         modalContent.style.left = `${event.clientX}px`;
         modalContent.style.top = `${event.clientY}px`;
         modal.style.display = "block";
+       
      });
     });
 
     close.addEventListener('click' , (event) => {
+        
         modal.style.display = "none";
     })
-}
-
-fetchLegendsPageLoad();//
 
 //listen when value change
 diagnosisList.addEventListener('change', event =>{
+    let selectedTeethButton = document.querySelector("#"+currentSelectedTeeth);
+    let tempJson = { 
+            id: currentSelectedTeeth,
+            diagnosis: diagnosisList.value,
+            changed: true,
+    };
+    selectedTeethButton.dataset.value = JSON.stringify(tempJson)
     modal.style.display = "none";
 })
 
