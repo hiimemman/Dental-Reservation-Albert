@@ -528,20 +528,20 @@ teeth.forEach(tooth => {
 
 //listen when value change
 diagnosisList.addEventListener('change', event =>{
+    let tempJson = { 
+            id: currentSelectedTeeth,//remove tooth- to get only the teeth number,
+            diagnosis: event.target.value,
+    };
+
     let img = selectedTeeth.querySelector("img");
     if(event.target.value === 'none' ){
         if (img.src.endsWith('-green.png')) {
-            let tempJson = { 
-            id: getTeethNum,
-            diagnosis: "none",
-        };
-
-        selectedTeeth.dataset.value = JSON.stringify(tempJson)
             img.src = img.src.replace('-green', '');;
         }
     }else if (!img.src.endsWith('-green.png')) {
             img.src = img.src.substr(0, img.src.length - 4) + "-green.png";
     }
+    selectedTeeth.dataset.value = JSON.stringify(tempJson)
     modal.style.display = "none";
 })
 
