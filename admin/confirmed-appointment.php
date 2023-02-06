@@ -546,40 +546,8 @@ diagnosisList.addEventListener('change', event =>{
 })
 
 </script>
-<input type="checkbox" style ="display: none;"  name="services" value="Tite" id="diagram">
-                            <!-- <div class="form-check">
-                                <input type="checkbox"  name="services[]" value="none" id="diagram">
-                                <label>None</label>
 
-                            </div> -->
-
-                            <!-- <div class="form-check">
-                            <?php
-                            for ($x = 1; $x <= 32; $x++) {
-                            ?>
-
-                                <input type="checkbox"  name="services[]" value="<?php echo $x ?>" id="diagram">
-                                <label><?php echo $x ?></label> &nbsp;
-                                <select name = "ser[]" style="height:30px; width:80px;">
-                                    <option disabled selected>Select</option>
-
-                                    <?php $sql2 = mysqli_query($conn, "SELECT * FROM tbl_legend"); 
-                                            while($row2 = mysqli_fetch_array($sql2)){
-
-                                            
-                                    ?>
-                                    <option value="<?php echo $row2['name']; ?>"><?php echo $row2['name']; ?></option>
-                                            <?php } ?>
-
-
-
-                                    </select>
-                           
-                                <br>
-                              
-                                <?php } ?>
-
-                            </div> -->
+                            
 
                                         
                     
@@ -595,10 +563,6 @@ diagnosisList.addEventListener('change', event =>{
 
                     </form>
                 </div>
-                <!-- <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" id="update_btn" form="update" class="btn btn-success">Update</button>
-                </div> -->
             </div>
         </div>
     </div> <!-- UPDATE MODAL END -->
