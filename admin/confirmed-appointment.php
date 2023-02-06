@@ -448,7 +448,8 @@ const fetchLegendsPageLoad = async () => {
             legends = response.data;
 
             let diagnosisContentHTML = '';
-            diagnosisContentHTML += `<option disabled selected>Select</option>`;
+            diagnosisContentHTML += `<option disabled selected>Select a diagnosis</option>
+            <option value ="none" id = "noneDiagnosis">None</option>`;
             response.data.forEach((legend) =>{
                 diagnosisContentHTML += `<option value ="`+legend.name+`" id = "`+legend.id+`">`+legend.name+`</option>`;
             })
@@ -496,12 +497,6 @@ teeth.forEach(tooth => {
 
         
         currentSelectedTeeth = tooth.id;
-        console.log(selectedTeethDataset)
-
-        
-        if (!img.src.endsWith('-green.png')) {
-            img.src = img.src.substr(0, img.src.length - 4) + "-green.png";
-        }
          
         //when teeth was hovered
         selectedTeeth.addEventListener("mouseenter", (event) => {
@@ -533,13 +528,20 @@ teeth.forEach(tooth => {
 
 //listen when value change
 diagnosisList.addEventListener('change', event =>{
-    let selectedTeethButton = document.querySelector("#"+currentSelectedTeeth);
-    let tempJson = { 
-            id: currentSelectedTeeth,
-            diagnosis: diagnosisList.value,
-            changed: true,
-    };
-    selectedTeethButton.dataset.value = JSON.stringify(tempJson)
+    let img = selectedTeeth.querySelector("img");
+    if(event.target.value === 'none' ){
+        if (img.src.endsWith('-green.png')) {
+            let tempJson = { 
+            id: getTeethNum,
+            diagnosis: "none",
+        };
+
+        selectedTeeth.dataset.value = JSON.stringify(tempJson)
+            img.src = img.src.replace('-green', '');;
+        }
+    }else if (!img.src.endsWith('-green.png')) {
+            img.src = img.src.substr(0, img.src.length - 4) + "-green.png";
+    }
     modal.style.display = "none";
 })
 
