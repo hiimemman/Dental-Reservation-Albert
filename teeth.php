@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sample teeth</title>
+    <title>COMIA SAMPLE TEETH DIAGRAM</title>
     <link rel="preload" href="./teeths/TOOTH-DIAGRAM.png" as="image">
     <style>
         #teeth-diagram {

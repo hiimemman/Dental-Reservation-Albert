@@ -137,7 +137,7 @@ include './components/component-top.php';
             </div>
         </div>
     </div> <!-- UPDATE MODAL END -->
-    <a href="records-archive.php"><button class="archive">View Records</button></a>
+    <a href="records.php"><button class="archive">View Records</button></a>
     <section>
         <div class="row">
             <div class="card p-3">
@@ -159,7 +159,7 @@ include './components/component-top.php';
                         </thead>
                         <tbody>
                             <?php 
-                                $query = "SELECT * FROM tbl_appointment WHERE status = 'COMPLETED' AND isStatus = 1";
+                                $query = "SELECT * FROM tbl_appointment WHERE status = 'COMPLETED' AND isStatus = 0";
                                 $res = mysqli_query($conn, $query);
                                 while($row = mysqli_fetch_array($res)){
 
@@ -179,10 +179,10 @@ include './components/component-top.php';
                                     
                                     <?php 
                                     if($row['isStatus'] == 1){
-                                        echo '<a class="btn btn-danger" href="records-status.php?appointment_id='.$row['appointment_id'].'&isStatus=0">Restore</a>';
+                                        echo '<a class="btn btn-danger" href="records-status.php?appointment_id='.$row['appointment_id'].'&isStatus=0">Archive</a>';
                                     }
                                     else{
-                                        echo '<a class="btn btn-danger" href="records-status.php?appointment_id='.$row['appointment_id'].'&isStatus=1"><i class="fas fa-archive"></i></a>';
+                                        echo '<a class="btn btn-danger" href="records-status.php?appointment_id='.$row['appointment_id'].'&isStatus=1">Restore</a>';
                                     }
                                     ?>
                                     <!-- <p class="archive"></p> -->
