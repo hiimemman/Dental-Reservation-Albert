@@ -179,10 +179,10 @@ include './components/component-top.php';
                                     
                                     <?php 
                                     if($row['isStatus'] == 1){
-                                        echo '<a class="archive" href="records-status.php?appointment_id='.$row['appointment_id'].'&isStatus=0">Restore</a>';
+                                        echo '<a class="btn btn-danger" href="records-status.php?appointment_id='.$row['appointment_id'].'&isStatus=0">Archive</a>';
                                     }
                                     else{
-                                        echo '<a class="btn btn-danger" href="records-status.php?appointment_id='.$row['appointment_id'].'&isStatus=1">Archive</a>';
+                                        echo '<a class="btn btn-danger" href="records-status.php?appointment_id='.$row['appointment_id'].'&isStatus=1">Restore</a>';
                                     }
                                     ?>
                                     <!-- <p class="archive"></p> -->
