@@ -405,6 +405,7 @@
 </div>
 <div id="teeth-tooltip"></div>
 
+<input type ="hidden" id ="diagram" />
 <script defer>
 
 //Ung ngipin
@@ -425,6 +426,12 @@ const diagnosisList = document.querySelector("#diagnosisList");
 //Tooltip of tooth
 const tooltip = document.querySelector("#teeth-tooltip");
 
+//Store diagnosis in input 
+const diagramHidden = document.querySelector("#diagram");
+
+//Current selected teethh
+let currentSelectedTeeth = '';
+
 const fetchLegendsPageLoad = async () => {
 
   await window.onload;
@@ -441,6 +448,8 @@ const fetchLegendsPageLoad = async () => {
             legends = response.data;
 
             let diagnosisContentHTML = '';
+            diagnosisContentHTML += `<option disabled selected>Select a diagnosis</option>
+            <option value ="none" id = "noneDiagnosis">None</option>`;
             response.data.forEach((legend) =>{
                 diagnosisContentHTML += `<option value ="`+legend.name+`" id = "`+legend.id+`">`+legend.name+`</option>`;
             })
@@ -459,25 +468,42 @@ const fetchLegendsPageLoad = async () => {
   
 
   
-    teeth.forEach(tooth => {
+   
+}
+
+fetchLegendsPageLoad();//
+
+teeth.forEach(tooth => {
     tooth.addEventListener('click', event => {
         // Add code to handle the tooth click event here
         console.log(`Tooth ${tooth.id} clicked!`);
         selectedTeeth =  document.querySelector("#"+tooth.id);
         let img = selectedTeeth.querySelector("img"); 
-
-        //change to green when selected
-        img.src = img.src.substr(0, img.src.length - 4) + "-green.png";
         
-        //change the data that the selected teeth holds
-        selectedTeeth.dataset.value = diagnosisList.value;
+        let getTeethNum = tooth.id.slice(6);//remove tooth- to get only the teeth number
 
+        //change the data that the selected teeth holds
+        let tempJson = { 
+            id: getTeethNum,
+            diagnosis: diagnosisList.value,
+        };
+
+        selectedTeeth.dataset.value = JSON.stringify(tempJson)
+        let selectedTeethDataset = selectedTeeth.dataset.value;
+        //Update diagram when  new diagnosis was selected
+        
+        let addToDiagnosis = getTeethNum+" - "+selectedTeeth.dataset.value;
+        // diagramHidden
+
+        
+        currentSelectedTeeth = tooth.id;
+         
         //when teeth was hovered
         selectedTeeth.addEventListener("mouseenter", (event) => {
             let tooltipNewContent = '';
 
             tooltipNewContent   += `<h1>`+tooth.id+`</h1>`;
-            tooltipNewContent += `<p>Diagnosis</p> `+event.target.dataset.value+``;
+            tooltipNewContent += `<p>Diagnosis</p> `+JSON.parse(event.target.dataset.value).diagnosis+``;
             tooltip.innerHTML = tooltipNewContent;
             tooltip.style.display = "block";
             tooltip.style.left = `${event.clientX}px`;
@@ -491,56 +517,37 @@ const fetchLegendsPageLoad = async () => {
         modalContent.style.left = `${event.clientX}px`;
         modalContent.style.top = `${event.clientY}px`;
         modal.style.display = "block";
+       
      });
     });
 
     close.addEventListener('click' , (event) => {
+        
         modal.style.display = "none";
     })
-}
-
-fetchLegendsPageLoad();//
 
 //listen when value change
 diagnosisList.addEventListener('change', event =>{
+    let tempJson = { 
+            id: currentSelectedTeeth,//remove tooth- to get only the teeth number,
+            diagnosis: event.target.value,
+    };
+
+    let img = selectedTeeth.querySelector("img");
+    if(event.target.value === 'none' ){
+        if (img.src.endsWith('-green.png')) {
+            img.src = img.src.replace('-green', '');;
+        }
+    }else if (!img.src.endsWith('-green.png')) {
+            img.src = img.src.substr(0, img.src.length - 4) + "-green.png";
+    }
+    selectedTeeth.dataset.value = JSON.stringify(tempJson)
     modal.style.display = "none";
 })
 
 </script>
-<input type="checkbox" style ="display: none;"  name="services" value="Tite" id="diagram">
-                            <!-- <div class="form-check">
-                                <input type="checkbox"  name="services[]" value="none" id="diagram">
-                                <label>None</label>
 
-                            </div> -->
-
-                            <!-- <div class="form-check">
-                            <?php
-                            for ($x = 1; $x <= 32; $x++) {
-                            ?>
-
-                                <input type="checkbox"  name="services[]" value="<?php echo $x ?>" id="diagram">
-                                <label><?php echo $x ?></label> &nbsp;
-                                <select name = "ser[]" style="height:30px; width:80px;">
-                                    <option disabled selected>Select</option>
-
-                                    <?php $sql2 = mysqli_query($conn, "SELECT * FROM tbl_legend"); 
-                                            while($row2 = mysqli_fetch_array($sql2)){
-
-                                            
-                                    ?>
-                                    <option value="<?php echo $row2['name']; ?>"><?php echo $row2['name']; ?></option>
-                                            <?php } ?>
-
-
-
-                                    </select>
-                           
-                                <br>
-                              
-                                <?php } ?>
-
-                            </div> -->
+                            
 
                                         
                     
@@ -556,10 +563,6 @@ diagnosisList.addEventListener('change', event =>{
 
                     </form>
                 </div>
-                <!-- <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" id="update_btn" form="update" class="btn btn-success">Update</button>
-                </div> -->
             </div>
         </div>
     </div> <!-- UPDATE MODAL END -->
@@ -686,12 +689,27 @@ $(document).ready(function() {
         }
     })
 
+    const teeth = document.querySelectorAll('.tooth');
+    
     // SUBMIT UPDATE
     $(document).on('submit', '#update', function(e) {
         e.preventDefault();
 
+        let getDiagrams = [];
+
+        teeth.forEach(tooth => {
+            if(tooth.dataset.value !== undefined){
+                let dataInTeeth = JSON.parse(tooth.dataset.value);
+                let dataValue = dataInTeeth.id+" - "+dataInTeeth.diagnosis;
+                getDiagrams.push(dataValue);
+            }
+        });
+
+        console.log(getDiagrams)
         var form = new FormData(this);
         form.append('update_appointment', true);
+        
+        form.append("diagram", getDiagrams);
         for (let pair of form.entries()) {
             console.log(pair[0]+ ', ' + pair[1]); 
         }
