@@ -39,13 +39,14 @@ include './components/component-top.php';
                         while($row = mysqli_fetch_array($sql)){
                     ?>
 
-                        <tr>
+                            <tr>
                                 <td><?php echo $row ['name'] ?></td>
                                 <td><?php echo $row ['email'] ?></td>
                                 <td>Subject: <?php echo $row ['subject'] ?><br>
                                     Message: <?php echo $row ['message'] ?>
                             </td>
                             </tr>
+                    
                             <?php } ?>
 
 

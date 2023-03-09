@@ -71,8 +71,21 @@ $lastname = $fetch['lastname'];
                     <input class="btn btn-success custom_btn date_submit" type="button" value="FILTER">
                 </div>
                 <div class="table-responsive">
+
                     <table class="table table-striped" id="example" style="width:100%">
-                        <thead>
+
+                    <tfoot id = "footTable">
+                            <tr  >
+                                <th>Appointment ID</th>
+                                <th>Firstname</th>
+                                <th>Lastname</th>
+                                <th style="text-align:center;">Services</th> 
+                                <th>Appointment Date</th>
+                            </tr>
+                        </tfoot>
+                     
+
+                        <thead id ="headTable">
                             <tr  >
                                 <th>Appointment ID</th>
                                 <th>Firstname</th>
@@ -83,17 +96,9 @@ $lastname = $fetch['lastname'];
                         </thead>
 
 
-                        <tfoot>
-                            <tr  >
-                                <th>Appointment ID</th>
-                                <th>Firstname</th>
-                                <th>Lastname</th>
-                                <th style="text-align:center;">Services</th> 
-                                <th>Appointment Date</th>
-                            </tr>
-                        </tfoot>
+                       
 
-
+                        
                         <tbody>
                             <?php
                             $query = mysqli_query($conn, "SELECT * FROM tbl_appointment WHERE status = 'COMPLETED'");
@@ -101,7 +106,7 @@ $lastname = $fetch['lastname'];
                             ?>
 
                     <tr>
-                        <td><?php echo $row['appointment_id'] ?></td>
+                        <td  class = "appointmentID"><?php echo $row['appointment_id'] ?></td>
                         <td><?php echo $row['firstname'] ?></td>
                         <td><?php echo $row['lastname'] ?></td>
                         <td style="text-align:center;"><?php echo $row['service'] ?><br>  
@@ -118,6 +123,14 @@ $lastname = $fetch['lastname'];
             </div>
         </div>
     </section>
+
+<script defer>
+    const table = document.querySelector("#example");
+    const thead = table.querySelector("#headTable");
+    const tfoot = table.querySelector("#footTable");
+
+    table.insertBefore(tfoot, thead);
+</script>
 
 </main><!-- End #main -->
 
@@ -175,8 +188,9 @@ $(document).ready( function () {
     // Setup - add a text input to each footer cell
     $('#example tfoot th').each( function () {
         var title = $('#example thead th').eq( $(this).index() ).text();
-        $(this).html( '<input type="text" placeholder="Search by '+title+'" />' );
+        $(this).html( '<input type="text" placeholder="Search by '+title+'"/>' );
     } );
+    
  
     // DataTable
     var table = $('#example').DataTable();
@@ -189,9 +203,9 @@ $(document).ready( function () {
             that
                 .search( this.value )
                 .draw();
-        } );
-    } );
-} );
+          });
+        });
+    });
   
       $('.date_submit').click(function() {
         var start_date = $('#start_date').val();

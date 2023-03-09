@@ -8,7 +8,7 @@ session_start();
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Comia Dental Care</title>
+    <title>Dela Chica Dental</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -102,9 +102,8 @@ $(document).ready(function(){
             <a href="index.php" class="logo d-flex align-items-center scrollto me-auto me-lg-0">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
                 <!-- <img src="assets/img/logo.png" alt=""> -->
-                <h1 class="d-none d-sm-block" style="font-weight: bold !important; color: #277c75 !important;">Comia
-                    Dental Care</h1>
-                <h5 class="d-block d-sm-none" style="font-weight: bold !important;">Comia Dental Care</h5>
+                <h1 class="d-none d-sm-block" style="font-weight: bold !important; color: #277c75 !important;">Dela Chica Dental</h1>
+                <h5 class="d-block d-sm-none" style="font-weight: bold !important;">Dela Chica Dental</h5>
             </a>
 
             <nav id="navbar" class="navbar ">
