@@ -53,10 +53,10 @@
 <div id="teeth-diagram">
     <div id="upper-part">
         <div class="tooth" title="This is a tooltip" id="tooth-1" style ="top: 24%;left: 25px;" >
-            <img src="./teeths/teeth1.png" alt="lag HAHA">
+            <img src="./teeths/teeth1.png" alt="ngipin">
         </div>
         <div class="tooth" title="This is a tooltip" id="tooth-2" style ="top: 19.2%;left: 34px;">
-          <img src="./teeths/teeth2.png" alt="lag HAHA">
+          <img src="./teeths/teeth2.png" alt="ngipin">
         </div>
         <div class="tooth" title="This is a tooltip" id="tooth-3" style ="top: 14.6%;left: 42px;">
           <img src="./teeths/teeth3.png" alt="lag HAHA">

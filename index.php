@@ -73,6 +73,7 @@ include './components/header.php';
         </div>
     </section>
     <section class="" id="about">
+
         <!-- ======= About Section ======= -->
         <div class="container" data-aos="fade-up">
 
@@ -156,7 +157,8 @@ include './components/header.php';
 
                         <img class="w-100" src="./<?php echo $row6['img']; ?>" alt="">
                     </div>
-                </div><!-- End Service Item -->
+                </div>
+<!-- End Service Item -->
             </div>
 
 
