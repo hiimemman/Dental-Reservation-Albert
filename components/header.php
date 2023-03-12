@@ -13,7 +13,7 @@ session_start();
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="assets/img/comia-new.png" rel="icon">
+    <link href="assets/img/clients/delachica-logo-removebg-preview.png" rel="icon">
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -31,8 +31,8 @@ session_start();
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
     <!-- Variables CSS Files. Uncomment your preferred color scheme -->
-    <link href="assets/css/variables.css" rel="stylesheet">
-    <!-- <link href="assets/css/variables-blue.css" rel="stylesheet"> -->
+    <!-- <link href="assets/css/variables.css" rel="stylesheet"> -->
+    <link href="assets/css/variables-blue.css" rel="stylesheet">
     <!-- <link href="assets/css/variables-green.css" rel="stylesheet"> -->
     <!-- <link href="assets/css/variables-orange.css" rel="stylesheet"> -->
     <!-- <link href="assets/css/variables-purple.css" rel="stylesheet"> -->
@@ -101,9 +101,9 @@ $(document).ready(function(){
 
             <a href="index.php" class="logo d-flex align-items-center scrollto me-auto me-lg-0">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
-                <!-- <img src="assets/img/logo.png" alt=""> -->
-                <h1 class="d-none d-sm-block" style="font-weight: bold !important; color: #277c75 !important;">Dela Chica Dental</h1>
-                <h5 class="d-block d-sm-none" style="font-weight: bold !important;">Dela Chica Dental</h5>
+                <img style = "width: 3rem;"src="assets/img/clients/delachica-logo-removebg-preview.png" alt="">
+                <h1 class="d-none d-sm-block" style="font-weight: bold !important;  color: rgb(12 74 110) !important;">Dela Chica Dental</h1>
+                <!-- <h5 class="d-block d-sm-none" style="font-weight: bold !important;">Dela Chica Dental</h5> -->
             </a>
 
             <nav id="navbar" class="navbar ">
@@ -113,7 +113,7 @@ $(document).ready(function(){
                     <li><a class="nav-link scrollto" href="index.php#services">Services</a></li>
                     <li><a class="nav-link scrollto" href="index.php#appointment">Appointment</a></li>
                     <li><a class="nav-link scrollto" href="index.php#about">About</a></li>
-                    <li><a class="nav-link scrollto" href="index.php#protocol">Protocols</a></li>
+                    <!-- <li><a class="nav-link scrollto" href="index.php#protocol">Protocols</a></li> -->
                     <li><a class="nav-link scrollto" href="index.php#contact">Contact</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle d-none"></i>

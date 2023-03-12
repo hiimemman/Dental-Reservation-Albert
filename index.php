@@ -7,7 +7,7 @@ include './components/header.php';
     <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative"
         data-aos="zoom-out">
         <img src="assets/img/tooth.png" class="img-fluid animated">
-        <h2 class="fw-bold">WE PRIORITY YOUR NEW SMILE</h2>
+        <h2 class="fw-bold">YOUR NEIGHBORHOOD DENTAL CLINIC</h2>
         <div class="d-flex">
             <a href="appointment.php" class="btn bg-white appointment">Book An Appointment Now</a>
         </div>
@@ -79,10 +79,7 @@ include './components/header.php';
 
             <div class="section-header">
                 <h2>About Us</h2>
-                <p>Comia Dental Clinic was established in 2002. We are one of the most established and respected brands
-                    of dental care in Bacoor. We operate a chain of modern and state-of-the art dental clinics that
-                    provide multi-specialty services to patients. Please feel free to go through our site to know more
-                    about us , our dentists, our clinics and the services we provide. Enjoy!
+                <p style="color:white !important;">Dela Chica Dental Clinic, your neighborhood dental clinic, is committed to provide an excellent dental care to its patients at a reasonable cost to promote the importance of oral health education
             </div>
 
             <div class="row gy-4">
@@ -138,7 +135,7 @@ include './components/header.php';
 
             </div>
     </section>
-    <section class="bg-primary" id="protocol">
+    <!-- <section class="bg-primary" id="protocol">
         <div class="section-header">
             <h2>Clinic Protocols</h2>
         </div>
@@ -150,16 +147,16 @@ include './components/header.php';
 
                         <img class="w-100" src="./<?php echo $row5['img']; ?>" alt="">
                     </div>
-                </div><!-- End Service Item -->
+                </div>End Service Item -->
 
-                <div class="col-xl-6 col-md-6 d-flex" data-aos="zoom-out" data-aos-delay="600">
+                <!-- <div class="col-xl-6 col-md-6 d-flex" data-aos="zoom-out" data-aos-delay="600">
                     <div class="service-item position-relative">
 
                         <img class="w-100" src="./<?php echo $row6['img']; ?>" alt="">
                     </div>
-                </div>
+                </div> -->
 <!-- End Service Item -->
-            </div>
+            <!-- </div>
 
 
 
@@ -168,7 +165,7 @@ include './components/header.php';
         </div>
 
         </div>
-    </section><!-- End About Protocol -->
+    </section>End About Protocol -->
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
@@ -194,7 +191,7 @@ include './components/header.php';
                             <i class="bi bi-geo-alt flex-shrink-0"></i>
                             <div>
                                 <h4>Location:</h4>
-                                <p>Paliparan - Dasmarinas Branch & Molino - Bacoor Branch, Dasmariñas, Philippine</p>
+                                <p>Avenida Rizal St., Bahayang Pagasa, Molino V, Bacoor, Philippines</p>
                             </div>
                         </div><!-- End Info Item -->
 
@@ -202,7 +199,7 @@ include './components/header.php';
                             <i class="bi bi-envelope flex-shrink-0"></i>
                             <div>
                                 <h4>Email:</h4>
-                                <p><a href="mailto:comiadental@gmail.com" >comiadental@gmail.com</a></p>
+                                <p><a href="mailto:sleepshaco@gmail.com" >sleepshaco@gmail.com</a></p>
                             </div>
                         </div><!-- End Info Item -->
 
@@ -210,7 +207,7 @@ include './components/header.php';
                             <i class="bi bi-phone flex-shrink-0"></i>
                             <div>
                                 <h4>Call:</h4>
-                                <p>0919 935 4455 / 0995 466 8622 / 0915-4561079</p>
+                                <p>0998329873 / 09182307784</p>
                             </div>
                         </div><!-- End Info Item -->
 
